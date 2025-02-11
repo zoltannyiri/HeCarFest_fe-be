@@ -1,0 +1,123 @@
+.hatterszin {
+  // background-color: #fdeeee;
+  background-image: url("/bg-1.jpg");
+  margin: 0; /* Győződj meg róla, hogy nincs margin a body-n */
+  padding-top: 0.1rem; /* Győződj meg róla, hogy nincs padding a body-n */
+  height: 100vh; /* Biztosítja, hogy a háttérszín az egész oldalon érvényes legyen */
+  width: 100%;
+  
+}
+
+.udv{
+    text-align: center;
+    font-size: 1.2rem;
+    
+}
+
+.szoveg1{
+  text-align: center;
+}
+
+.box {
+    // border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 20px;
+    width: 80%;
+    max-height: 80%;
+    margin: 20px auto;
+    background-color: hsla(0, 0%, 0%, 0.3);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    position: relative;
+    align-items: center;
+  }
+  
+  .option {
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .option-header {
+    padding: 10px;
+    background-color: #e2e2e2;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+  }
+  
+  .option-header:hover {
+    background-color: #acacac;
+  }
+  
+  
+  .option-content {
+    
+    padding: 15px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    // align-items: center;
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+//   box-sizing: border-box;
+  }
+
+  .option-content input{
+    width: 60%;
+    padding: 10px;
+    margin-right: 10%;
+    border-radius: 5px;
+    border: 0px;
+  }
+  
+  .gomb{
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 30px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+
+  margin-right: 10%;
+}
+
+.gomb:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.gomb:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.gomb:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+  
