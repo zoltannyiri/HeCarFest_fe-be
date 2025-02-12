@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
 import votingModel from "../models/voting.model";
 
@@ -26,9 +26,8 @@ export default class votingController {
     private Voting = async (req: Request, res: Response) => {
         const body = req.body;
         const category_id = body.category;
-        console.log(req.query);
         const hasip = await this.votingModel.findOne({ ip: req.headers['x-forwarded-for']?.toString().split(',')[0] || req.ip || req.connection.remoteAddress});
-        if (category_id && (!hasip || hasip.category !== category_id)) {
+        if (category_id && (!hasip || hasip.category!.toString() !== category_id)) {
             try {
                 body["_id"] = new mongoose.Types.ObjectId();
                 body["category"] = category_id;

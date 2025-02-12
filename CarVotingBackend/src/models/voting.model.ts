@@ -11,7 +11,7 @@ const votingSchema = new Schema(
         licence_plate: {
             type: String,
             required: true,
-            unique: true
+            unique: false
         },
         category: {
             type: String,
