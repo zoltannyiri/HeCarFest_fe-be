@@ -26,8 +26,8 @@ export default class votingController {
     private Voting = async (req: Request, res: Response) => {
         const body = req.body;
         const category_id = body.category;
-        const hasip = await this.votingModel.findOne({ ip: req.headers['x-forwarded-for']?.toString().split(',')[0] || req.ip || req.connection.remoteAddress});
-        if (category_id && (!hasip || hasip.category!.toString() !== category_id)) {
+        const hasip = await this.votingModel.findOne({ category: category_id, ip: req.headers['x-forwarded-for']?.toString().split(',')[0] || req.ip || req.connection.remoteAddress});
+        if (category_id && !hasip) {
             try {
                 body["_id"] = new mongoose.Types.ObjectId();
                 body["category"] = category_id;
