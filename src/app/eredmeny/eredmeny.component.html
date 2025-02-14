@@ -1,0 +1,22 @@
+<div class="results-container">
+    <div *ngIf="topVotes.length === 0">
+      <p>No categories available to display results.</p>
+    </div>
+    <div *ngFor="let category of topVotes" class="category-box">
+      <h3>{{ category.category }}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Rendszám</th>
+            <th>Százalék</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ category.vote.plate }}</td>
+            <td>{{ category.vote.percentage.toFixed(2) }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
