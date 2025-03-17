@@ -58,13 +58,14 @@ export class EredmenyComponent implements OnInit {
   loadResults(): void {
     // ForkJoin használata a párhuzamos kérések kezelésére
     forkJoin({
-      votings: this.http.get<VotingResult[]>('http://localhost:8000/api/votings').pipe(
+      // votings: this.http.get<VotingResult[]>('http://localhost:8000/api/votings').pipe(
+        votings: this.http.get<VotingResult[]>('https://hecarfest-backend2.onrender.com/api/votings').pipe(
         catchError((error: HttpErrorResponse) => {
           console.error('Hiba történt:', error);
           return of([]);
         })
       ),
-      votes: this.http.get<VoteDetails[]>('http://localhost:8000/api/voting/details').pipe(
+      votes: this.http.get<VoteDetails[]>('https://hecarfest-backend2.onrender.com/api/voting/details').pipe(
         catchError((error: HttpErrorResponse) => {
           console.error('Részletes szavazati adatok lekérési hiba:', error);
           return of([]);
@@ -85,7 +86,7 @@ export class EredmenyComponent implements OnInit {
   
 
   loadCategories(): void {
-    this.http.get<{ data: Category[] }>('http://localhost:8000/api/category')
+    this.http.get<{ data: Category[] }>('https://hecarfest-backend2.onrender.com/api/category')
       .pipe(
         catchError((error: HttpErrorResponse) => {
           console.error('Kategóriák lekérési hiba:', error);

@@ -24,6 +24,6 @@ export class KezdolapComponent {
     alert(`A beküldött rendszám az ${this.options[index].title} számára: ${this.options[index].plate}`);
     this.options[index].isOpen = false;
     const body = JSON.stringify({licence_plate: this.options[index].plate, category: this.options[index].id})
-    fetch("http://localhost:8000/api/voting/"+this.options[index].id, {method: "POST", body: body, headers: { 'Content-Type': 'application/json' }})
+    fetch("https://hecarfest-backend2.onrender.com/api/voting/"+this.options[index].id, {method: "POST", body: body, headers: { 'Content-Type': 'application/json' }})
   }
 }
