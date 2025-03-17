@@ -1,22 +1,32 @@
-<div class="results-container">
-    <div *ngIf="topVotes.length === 0">
-      <p>No categories available to display results.</p>
+<div *ngIf="results.length === 0" class="no-results">
+  Nincsenek elérhető eredmények.
+</div>
+
+<div class="categories-container">
+  <div *ngFor="let result of results" class="category-container">
+    <h3>{{ result.category.name }}</h3>
+    <div class="vote-count">
+      Összes szavazat: {{ result.votes.length || 0 }}
     </div>
-    <div *ngFor="let category of topVotes" class="category-box">
-      <h3>{{ category.category }}</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Rendszám</th>
-            <th>Százalék</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{ category.vote.plate }}</td>
-            <td>{{ category.vote.percentage.toFixed(2) }}%</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="car-ranking">
+      <h4>Legnépszerűbb autók</h4>
+      <ul>
+        <li *ngFor="let car of result.carVotes | slice:0:3">
+          <span class="car-plate">{{ car.licence_plate }}</span>
+          <span class="vote-count">({{ car.vote_count }} szavazat)</span>
+          <span class="last-vote-date" *ngIf="car.last_vote_date">
+            (Utolsó szavazat: {{ car.last_vote_date | date:'yyyy.MM.dd HH:mm'}})
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="all-votes">
+      <h4>Minden szavazat</h4>
+      <ul>
+        <li *ngFor="let vote of result.voteDetails">
+          Rendszám: {{ vote.licence_plate }} ({{ vote.date | date:'yyyy.MM.dd HH:mm'}})
+        </li>
+      </ul>
     </div>
   </div>
+</div>

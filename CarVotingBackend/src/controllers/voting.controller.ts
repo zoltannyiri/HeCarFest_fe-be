@@ -19,7 +19,7 @@ export default class votingController {
         this.router.post("/voting/:category", async (req, res, next) => {
             this.Voting(req, res).catch(next);
         });
-
+        this.router.get('/voting/details', this.GetDetailedVotings); //ez is új!!!
 
     }
 
@@ -59,4 +59,34 @@ export default class votingController {
             res.status(404).send({ message: "Votings not found!" });
         }
     };
+
+    //új
+    // voting.controller.ts
+    private GetDetailedVotings = async (req: Request, res: Response) => {
+        try {
+          const votings = await this.votingModel.find()
+            .select('_id licence_plate category date')
+            .sort({ date: -1 });
+      
+          console.log('Szavazatok:', votings);  // Debug log
+          
+          if (!votings || votings.length === 0) {
+            return res.status(404).json({ 
+              message: 'Nincsenek szavazatok' 
+            });
+          }
+      
+          res.json(votings);
+        } catch (error: any) {
+          console.error('Hiba történt a szavazatok lekérésénél:', error);  // Debug log
+          res.status(500).json({ 
+            message: 'Hiba történt a szavazatok lekérésénél',
+            error: error.message 
+          });
+        }
+      };
+      
+      
+      // A router hozzáadása a constructor-ban:
+      
 }
