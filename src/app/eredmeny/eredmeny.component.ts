@@ -74,7 +74,7 @@ export class EredmenyComponent implements OnInit {
       next: ({ votings, votes }) => {
         this.votings = votings;
         this.votes = votes;
-        this.loadCategories(); // Csak akkor töltjük a kategóriákat, ha a többi adat megvan
+        this.loadCategories();
       },
       error: (err) => {
         console.error('Hiba az adatok lekérésénél:', err);

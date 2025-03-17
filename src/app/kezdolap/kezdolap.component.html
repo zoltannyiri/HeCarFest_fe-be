@@ -4,12 +4,13 @@
     </div>
     <div class="form-group">
         <div class="box">
-            <h2 class="szoveg1">A versenyen három kategóriában tudsz a kedvenc autódra szavazni. <br></h2>
+            <h2 class="szoveg1">A versenyen három kategóriában tudsz a kedvenc autódra szavazni.<br></h2>
             <div *ngFor="let option of options; let i = index" class="option">
               <div class="option-header" (click)="toggleOption(i)">
                 {{ option.title }}
               </div>
               <div *ngIf="option.isOpen" class="option-content">
+                <br>
                 <input type="text" [(ngModel)]="option.plate" placeholder="Azonosító kód" /><br><br>
                 <button class="gomb" (click)="submit(i)">Küldés</button>
               </div>
