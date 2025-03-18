@@ -123,3 +123,52 @@ $border-color: #ddd;
     margin-bottom: 5px;
   }
 }
+
+// Kiegészítés
+.vote-count {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.car-ranking {
+  margin-top: 10px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 8px;
+      border-bottom: 1px solid $border-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .car-plate {
+        font-weight: bold;
+      }
+
+      .vote-count {
+        background-color: #e3f2fd;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+        color: $primary-color;
+      }
+
+      .last-vote-date {
+        font-size: 0.9em;
+        color: #666;
+      }
+    }
+  }
+}
