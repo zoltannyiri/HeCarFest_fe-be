@@ -1,16 +1,26 @@
 .hatterszin {
-  background-image: url("/bg-1.jpg");
+  background-image: url("/kocsi2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   margin: 0;
   padding-top: 0.1rem;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  
+  padding-bottom: 0.1rem;
 }
 
 .udv{
     text-align: center;
     font-size: 1.2rem;
-    
+}
+
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+  overflow-x: hidden !important;
 }
 
 .szoveg1{
