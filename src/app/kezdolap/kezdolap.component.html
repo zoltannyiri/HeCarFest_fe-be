@@ -13,7 +13,7 @@
                 <br>
                 <input type="text" maxlength="3" minlength="3" pattern="^\d{3}$" [(ngModel)]="option.plate" placeholder="Azonosító sorszám" (input)="onInput(option)" /><br><br>
                 <span *ngIf="option.error" class="error">{{ option.error }}</span><br><br>
-                <button class="gomb" (click)="submit(i)">Küldés</button>
+                <button class="gomb" (click)="submit(i)">Küldés</button><br><br>
               </div>
             </div>
           </div>
