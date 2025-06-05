@@ -1,6 +1,6 @@
 <div class="hatterszin">
     <div class="udv ">
-        <h1>Üdvözlünk a HeCarFest szavazófelületén!</h1>
+        <h1>Üdvözlünk a HéCarFest szavazófelületén!</h1>
     </div>
     <div class="form-group">
         <div class="box">
@@ -11,7 +11,8 @@
               </div>
               <div *ngIf="option.isOpen" class="option-content">
                 <br>
-                <input type="text" [(ngModel)]="option.plate" placeholder="Azonosító kód" /><br><br>
+                <input type="text" maxlength="3" minlength="3" pattern="^\d{3}$" [(ngModel)]="option.plate" placeholder="Azonosító sorszám" (input)="onInput(option)" /><br><br>
+                <span *ngIf="option.error" class="error">{{ option.error }}</span><br><br>
                 <button class="gomb" (click)="submit(i)">Küldés</button>
               </div>
             </div>
